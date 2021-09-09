@@ -53,7 +53,7 @@ int minimax(int board[9], int player){
                 score = thisScore;
                 move = i;
             } // joga onde for pior pro oponente            
-			board[i] = 0;//Reset board after try
+			board[i] = 0;// reseta o tabuleiro
         }
     }
     if(move == -1)

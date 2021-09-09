@@ -15,12 +15,7 @@ void 	verificaGanhador(int* semID);
 void 	verificaErro(int err);
 
 // globais do minimax.h
-int  board[9] = { 
-	0, 0, 0,
-	0, 0, 0,
-	0, 0, 0
-};
-
+int  board[9] = {0, 0, 0, 0, 0, 0,	0, 0, 0};
 // globais do main
 int  vitorias[2] 	= { 0 };     // vitorias do jogador 1 e 2
 int  ultSemaforo	=  0; 		 // ID do ultimo semaforo utilizado
@@ -28,11 +23,9 @@ int  jogadas		=  0;		 // numero de jogadas
 int  time_ms		=  10000;    // tempo de espera entre jogadas
 // definindo os semaforos
 sem_t S[3]; 					 // semaforos
-
 int main()
 {
-	int err, i = 0;		
-		
+	int err, i;		
 	pthread_t tIA[2];  			// threads da IA
 	pthread_t tGanhador; 		// thread que espera o fim do jogo
 
@@ -47,11 +40,11 @@ int main()
 	sem_post(&S[0]);
 	
 	// ordem de execucao das threads
-	int id[] = {0, 1, 2};	
-	err = pthread_create(&tIA[0],    NULL, jogarIA,      (void*)&id[0]);
-	verificaErro(err);
-	err = pthread_create(&tIA[1],    NULL, jogarIA, 	 (void*)&id[1]);
-	verificaErro(err);
+	int id[] = {0, 1, 2};
+	for(i = 0; i < 2; i++){	
+		err = pthread_create(&tIA[i], NULL, jogarIA, (void*)&id[i]);
+		verificaErro(err);
+	}
 	err = pthread_create(&tGanhador, NULL, finalizaJogo, (void*)&id[2]);
 	verificaErro(err);
 
