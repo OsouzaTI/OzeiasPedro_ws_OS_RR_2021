@@ -1,8 +1,8 @@
 # Tic-Tac-Toe
 
-<div style="text-align: center;">
+<p align="center">
   <img src="https://super.abril.com.br/wp-content/uploads/2018/07/jogo_da_velha_-_tic_tac_toe.png" alt="Jogo da Velha" style="zoom:5%;width:50%;"/>
-</div>
+</p>
   
 O projeto a ser desenvolvido, consiste na criação do jogo da velha. Neste caso, o jogo será feito por dois usuários artificiais (ou seja duas threads) no mesmo jogo da velha. 
 
