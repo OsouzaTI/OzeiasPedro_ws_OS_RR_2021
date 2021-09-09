@@ -40,6 +40,7 @@ void tcurses_end(){
     endwin();
 }
 
+
 void tcurses_render_board(int board[9], int v[2]){
     clear();
     attron(COLOR_PAIR(4));

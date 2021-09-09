@@ -25,7 +25,7 @@ int  board[9] = {
 int  vitorias[2] 	= { 0 };     // vitorias do jogador 1 e 2
 int  ultSemaforo	=  0; 		 // ID do ultimo semaforo utilizado
 int  jogadas		=  0;		 // numero de jogadas
-int  time_ms		=  10000;   // tempo de espera entre jogadas
+int  time_ms		=  10000;    // tempo de espera entre jogadas
 // definindo os semaforos
 sem_t S[3]; 					 // semaforos
 
@@ -84,16 +84,17 @@ void verificaGanhador(int* semID){
 			minimax_init(board);
 			resetaJogadas = 1;
 		}	
-		sem_post(&S[ (*semID+1)%2 ]);
+		sem_post(&S[ (*semID+1) % 2 ]);
 	} else {
-		// getchar();
+		getchar();
 		// inicializa o tabuleiro
 		minimax_init(board);
 		resetaJogadas = 1;
 		sem_post(&S[2]);	
 	}
 	// reseta as jogadas
-	if(resetaJogadas) jogadas = 0;
+	if(resetaJogadas)
+		jogadas = 0;
 }
 
 // thread que espera um ganhador

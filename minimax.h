@@ -100,7 +100,9 @@ void minimax_rng_move(int board[9], int player, int jogadas){
 
 void minimax_draw(int b[9], int v[2]) {
 	system("clear");
-	printf("vitorias:\nPlayer 1(O) -> %d\nPlayer 2(X) -> %d\n", v[0], v[1]);
+	printf(
+        "vitorias:\nPlayer 1(O) -> %d\nPlayer 2(X) -> %d\n", v[0], v[1]);
+
     printf(" %c | %c | %c\n",minimax_parse(b[0]),minimax_parse(b[1]),minimax_parse(b[2]));
     printf("---+---+---\n");
     printf(" %c | %c | %c\n",minimax_parse(b[3]),minimax_parse(b[4]),minimax_parse(b[5]));
